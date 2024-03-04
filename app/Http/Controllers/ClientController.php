@@ -26,9 +26,8 @@ class ClientController extends Controller
         if ($request->hasFile('company_logo')) {
             $file = $request->file('company_logo');
             $filename = $file->getClientOriginalName(); 
-            $file->storeAs('public/companyLogos', $filename);
-            $validatedData['company_logo'] = 'companyLogos/' . $filename;
-            
+            $file->move(public_path('companyLogos'), $filename);
+            $validatedData['company_logo'] = 'companyLogos/' . $filename;       
            
         }
 
