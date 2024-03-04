@@ -25,7 +25,6 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/login', [AuthController::class, 'create'])->name('login');
 
@@ -37,4 +36,5 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware(['auth'])->group(function () {
     Route::get('/clients/add', [ClientController::class, 'create'])->name('clients.create');
     Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
