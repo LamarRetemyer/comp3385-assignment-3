@@ -31,10 +31,10 @@ class ClientController extends Controller
            
         }
 
-        // Create the client
+       
         $client = Client::create($validatedData);
 
-        // Redirect or return a response as needed
+       
         return redirect()->route('clients.create')->with('success', 'Client added successfully.');
     }
 
